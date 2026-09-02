@@ -1,0 +1,17 @@
+[medm]
+# Prefer official API when available.
+api_base_url = "https://api.medm.example/v1"
+api_token = "replace-with-medm-token"
+
+# Optional fallback if API is unavailable:
+csv_path = "./exports/medm_bp_export.csv"
+
+[garmin]
+email = "your-garmin-email@example.com"
+password = "your-garmin-password"
+token_dir = "./.medm2garmin_tokens"
+
+[sync]
+state_file = "./.medm2garmin_state.json"
+log_level = "INFO"
+dry_run = true

@@ -1,0 +1,28 @@
+[workspace]
+authors = ["medm2garmin contributors"]
+channels = ["conda-forge"]
+name = "medm2garmin"
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+version = "0.1.0"
+
+[dependencies]
+python = ">=3.12,<3.13"
+pip = ">=24"
+
+[pypi-dependencies]
+medm2garmin = { path = ".", editable = true }
+
+[feature.dev.pypi-dependencies]
+pytest = ">=8.3"
+pytest-cov = ">=5.0"
+ruff = ">=0.6"
+mypy = ">=1.11"
+
+[environments]
+default = { solve-group = "default" }
+dev = { features = ["dev"], solve-group = "default" }
+
+[tasks]
+test = "pytest"
+lint = "ruff check src tests"
+typecheck = "mypy src"
